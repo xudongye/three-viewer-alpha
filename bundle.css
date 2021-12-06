@@ -1,0 +1,662 @@
+@charset "UTF-8";
+button,
+input:focus {
+  outline: 0; }
+
+.viewer {
+  width: 100%;
+  height: 100%;
+  -webkit-box-flex: 1;
+          flex-grow: 1;
+  flex-shrink: 1;
+  position: absolute;
+  top: 0;
+  z-index: 0;
+  background-color: #d6d7d9; }
+  .viewer.wireframePattern {
+    background-color: #011830; }
+  .viewer .dg.main {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background-color: #000; }
+    .viewer .dg.main.slice-panel {
+      top: 180px; }
+
+.scrollbar-style ::-webkit-scrollbar {
+  width: 10px;
+  height: 1px;
+  padding: 50px;
+  overflow: hidden; }
+
+.scrollbar-style ::-webkit-scrollbar-thumb {
+  /*滚动条里面小方块*/
+  background: #686868; }
+
+.scrollbar-style ::-webkit-scrollbar-track {
+  /*滚动条里面轨道*/
+  background: #2c2c30; }
+
+li {
+  list-style: none; }
+
+ul {
+  padding: 0px;
+  margin: 0px; }
+
+#viewcube {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 150px; }
+
+.viewer-bbar {
+  position: absolute;
+  bottom: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+  left: calc((100% - (60px * 8 + 230px)) / 2);
+  border-radius: 30px;
+  color: #1b1b1b;
+  line-height: 0px;
+  -webkit-backdrop-filter: blur(15px);
+          backdrop-filter: blur(15px);
+  display: -webkit-box;
+  display: flex;
+  overflow: hidden;
+  -webkit-transition: left 0.2s ease-in;
+  transition: left 0.2s ease-in;
+  -moz-transition: left 0.2s ease-in;
+  -web-kit-transition: left 0.2s ease-in; }
+  .viewer-bbar.shrink-state {
+    left: calc((100% -60px) / 2); }
+    .viewer-bbar.shrink-state .toobar-fold .btn {
+      background-image: url(images/toobar-unfold.svg) !important; }
+  .viewer-bbar .activate {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 4px; }
+  .viewer-bbar input[type="range"] {
+    background: #ddd;
+    -webkit-appearance: none;
+    height: 4px;
+    padding: 0;
+    border: none;
+    border-radius: 2px; }
+    .viewer-bbar input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      /*去除默认样式*/
+      height: 20px;
+      width: 20px;
+      -webkit-transform: translateY(0px);
+              transform: translateY(0px);
+      background: #fff;
+      border-radius: 15px;
+      border: 5px solid #477bdc; }
+  .viewer-bbar .explodeInput,
+  .viewer-bbar .explodeInput2 {
+    padding: 0px 10px;
+    display: none;
+    color: #fff;
+    text-align: center; }
+    .viewer-bbar .explodeInput p,
+    .viewer-bbar .explodeInput2 p {
+      margin: 0px; }
+    .viewer-bbar .explodeInput input,
+    .viewer-bbar .explodeInput2 input {
+      margin-top: 10px;
+      margin-bottom: 25px; }
+  .viewer-bbar.barOffset {
+    left: 360px; }
+  .viewer-bbar button {
+    height: 40px;
+    width: 60px;
+    margin: 0px 5px;
+    cursor: pointer;
+    border: none; }
+
+.toobar-fold {
+  width: 60px;
+  background: #1c1c1c;
+  height: auto;
+  float: left;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  border-radius: 30px 0px 0px 30px; }
+  .toobar-fold.normal-height {
+    border-radius: 30px; }
+  .toobar-fold .toobar-fold-btn {
+    cursor: pointer;
+    width: 42px;
+    height: 42px;
+    border-radius: 21px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 6px;
+    box-sizing: border-box; }
+    .toobar-fold .toobar-fold-btn .btn {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: white;
+      background-image: url(images/closeBtn-thick.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 16px; }
+
+.btn-area {
+  margin: 10px; }
+
+.transformToolBtn {
+  float: left;
+  background: none;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 80%;
+  background-image: url(images/transformToolBtn.svg); }
+  .transformToolBtn.activate {
+    background-image: url(images/transformToolBtn-activate.svg); }
+
+.selectedAllToolBtn {
+  float: left;
+  background: none;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 80%;
+  background-image: url(images/selectedAll.svg); }
+  .selectedAllToolBtn.activate {
+    background-image: url(images/selectedAll-activate.svg); }
+
+.showPartBtn {
+  float: left;
+  background: none;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 80%;
+  background-image: url(images/showPart.svg); }
+  .showPartBtn.activate {
+    background-image: url(images/showPart-activate.svg); }
+
+.rotationPartBtn {
+  float: left;
+  background: none;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 80%;
+  background-image: url(images/rotationbtn.svg); }
+  .rotationPartBtn.activate {
+    background-image: url(images/rotationbtn-activate.svg); }
+
+.zoomPartBtn {
+  float: left;
+  background: none;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 80%;
+  background-image: url(images/zoomPartBtn.svg); }
+  .zoomPartBtn.activate {
+    background-image: url(images/zoomPartBtn-activate.svg); }
+
+.materialBtn {
+  float: left;
+  background: none;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 80%;
+  background-image: url(images/materialBtn.svg); }
+  .materialBtn.activate {
+    background-image: url(images/materialBtn-activate.svg); }
+
+.explodeBtn {
+  float: left;
+  background: none;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 80%;
+  background-image: url(images/explodeBtn.svg); }
+  .explodeBtn.activate {
+    background-image: url(images/explodeBtn-activate.svg); }
+
+.secondaryExplode {
+  float: left;
+  background: none;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 80%;
+  background-image: url(images/secondaryExplode.svg); }
+  .secondaryExplode.activate {
+    background-image: url(images/secondaryExplode-activate.svg); }
+
+.fullScreenBtn {
+  float: left;
+  background: none;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 80%;
+  background-image: url(images/fullScreenBtn.svg); }
+  .fullScreenBtn.activate {
+    background-image: url(images/fullScreenBtn-activate.svg); }
+
+.sliceBtn {
+  float: left;
+  background: none;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 80%;
+  background-image: url(images/sliceBtn.svg); }
+  .sliceBtn.activate {
+    background-image: url(images/sliceBtn-activate.svg); }
+
+.VRBtn {
+  float: left;
+  background: none;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 80%;
+  background-image: url(images/VRBtn.svg); }
+  .VRBtn.activate {
+    background-image: url(images/VRBtn-activate.svg); }
+  .VRBtn.unableVR {
+    opacity: 0.2; }
+
+.partMeunBtn {
+  float: left;
+  background: none;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 80%;
+  background-image: url(images/partMeun.svg); }
+  .partMeunBtn.activate {
+    background-image: url(images/partMeun-activate.svg); }
+
+.scutcheonBtn {
+  float: left;
+  background: none;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 80%;
+  background-image: url(images/scutcheon.svg); }
+  .scutcheonBtn.activate {
+    background-image: url(images/scutcheon-activate.svg); }
+
+.SettingBtn {
+  float: left;
+  background: none;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 80%;
+  background-image: url(images/settingBtn.svg); }
+  .SettingBtn.activate {
+    background-image: url(images/settingBtn-activate.svg); }
+
+.cut-line {
+  float: left;
+  background: none;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 80%;
+  width: 1px;
+  border-left: 1px dashed rgba(255, 255, 255, 0.2);
+  height: 40px;
+  margin-right: 10px; }
+
+.CaremaResetBtn {
+  float: left;
+  background: none;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 80%;
+  background-size: auto 90%;
+  padding-left: 10px;
+  background-image: url(images/caremaResetBtn.svg); }
+  .CaremaResetBtn.activate {
+    background-image: url(images/caremaResetBtn-activate.svg); }
+
+.structureBtn {
+  float: left;
+  background: none;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 80%;
+  background-image: url(images/structureBtn.svg); }
+  .structureBtn.activate {
+    background-image: url(images/structureBtn-activate.svg); }
+
+.measurePointBtn {
+  float: left;
+  background: none;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 80%;
+  background-image: url(images/measurePointBtn.svg); }
+  .measurePointBtn.activate {
+    background-image: url(images/measurePointBtn-activate.svg); }
+
+.healthDegreeBtn {
+  float: left;
+  background: none;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 80%;
+  background-image: url(images/healthDegreeBtn.svg); }
+  .healthDegreeBtn.activate {
+    background-image: url(images/healthDegreeBtn-activate.svg); }
+
+.wireframeBtn {
+  float: left;
+  background: none;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 80%;
+  background-image: url(images/wireframeBtn.svg); }
+  .wireframeBtn.activate {
+    background-image: url(images/wireframeBtn-activate.svg); }
+
+.settingDisassemble {
+  float: left;
+  background: none;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 80%;
+  background-image: url(images/settingDisassemble.svg); }
+  .settingDisassemble.activate {
+    background-image: url(images/settingDisassemble-activate.svg); }
+
+.viewer-structure {
+  position: absolute;
+  left: 20px;
+  top: 90px;
+  display: none;
+  width: 300px;
+  max-height: calc(100vh - 220px);
+  overflow: hidden;
+  -webkit-backdrop-filter: blur(15px);
+          backdrop-filter: blur(15px);
+  border-radius: 6px; }
+  .viewer-structure p,
+  .viewer-structure div {
+    color: #fff;
+    font-size: 16px; }
+  .viewer-structure .close-button {
+    font-size: 11px;
+    -webkit-transition: opacity .1s linear;
+    transition: opacity .1s linear;
+    border: 0;
+    line-height: 19px;
+    height: 20px;
+    cursor: pointer;
+    text-align: center;
+    background-color: #000; }
+
+.component-menu-popup {
+  width: 200px;
+  background: rgba(54, 54, 54, 0.9);
+  position: absolute;
+  bottom: 90px;
+  left: calc(50% - 10px);
+  -webkit-backdrop-filter: blur(15px);
+          backdrop-filter: blur(15px);
+  border-radius: 6px;
+  overflow: hidden; }
+  .component-menu-popup .menu-list-title {
+    line-height: 50px;
+    font-size: 18px;
+    color: #fff;
+    padding: 0px 20px;
+    background: rgba(0, 0, 0, 0.5); }
+  .component-menu-popup .menu-list-items {
+    margin: 0px;
+    padding: 0px;
+    padding: 10px 0px; }
+  .component-menu-popup .menu-list-item {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #757575; }
+    .component-menu-popup .menu-list-item.activate {
+      cursor: pointer;
+      color: #fff; }
+      .component-menu-popup .menu-list-item.activate:hover {
+        background: rgba(0, 0, 0, 0.2); }
+
+.viewer-structure .panel-title {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 0px 20px;
+  height: 50px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+          align-items: center; }
+  .viewer-structure .panel-title p {
+    margin: 0px;
+    float: left; }
+  .viewer-structure .panel-title .panel-close-btn {
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 20px;
+    height: 20px;
+    background-size: 80%;
+    cursor: pointer;
+    background-image: url(images/closeBtn.svg);
+    float: right; }
+
+.viewer-structure .panel-control {
+  line-height: 30px;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 0px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1); }
+  .viewer-structure .panel-control .control-show-bnt {
+    float: right;
+    font-size: 14px;
+    color: #477bdc;
+    cursor: pointer; }
+
+.json-container {
+  font-family: 'Open Sans';
+  font-size: 16px;
+  height: calc(100vh - 300px);
+  overflow-y: scroll;
+  background-color: rgba(54, 54, 54, 0.9);
+  box-sizing: border-box; }
+  .json-container .line {
+    height: 36px;
+    line-height: 36px;
+    display: -webkit-box;
+    display: flex;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    cursor: pointer; }
+    .json-container .line:hover {
+      background-color: rgba(0, 0, 0, 0.2);
+      color: #fff; }
+    .json-container .line.active {
+      background: #477bdc;
+      color: #fff;
+      border-bottom: 1px solid  #477bdc; }
+    .json-container .line div {
+      float: left; }
+      .json-container .line div:last-child {
+        float: none;
+        clear: both; }
+    .json-container .line .part-perspective {
+      background-repeat: no-repeat;
+      background-position: center center;
+      -webkit-box-flex: 0;
+              flex: 0 0 26px;
+      height: 100%;
+      background-size: 60% auto;
+      background-image: url(images/zoomTool.svg); }
+    .json-container .line .hide-btn {
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 60% auto;
+      -webkit-box-flex: 0;
+              flex: 0 0 26px;
+      height: 100%;
+      float: right;
+      background-image: url(images/openEye.svg); }
+  .json-container .hidePart div {
+    opacity: 0.3; }
+  .json-container .hidePart .hide-btn {
+    background-image: url(images/closedEye.svg); }
+  .json-container .caret-icon {
+    width: 18px;
+    height: 100%;
+    text-align: center;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+            justify-content: center;
+    cursor: pointer;
+    position: relative; }
+  .json-container .empty-icon {
+    width: 18px; }
+  .json-container .json-type {
+    margin-right: 4px;
+    margin-left: 4px; }
+  .json-container .json-key {
+    margin-left: 4px;
+    white-space: nowrap;
+    width: calc(100% - 70px);
+    -webkit-box-flex: 1;
+            flex: 1 1 auto;
+    text-overflow: ellipsis;
+    display: inline-block;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden; }
+  .json-container .json-index {
+    margin-right: 4px;
+    margin-left: 4px; }
+  .json-container .json-value {
+    margin-left: 8px; }
+  .json-container .json-number {
+    color: #f9ae58; }
+  .json-container .json-boolean {
+    color: #ec5f66; }
+  .json-container .json-string {
+    color: #86b25c; }
+  .json-container .json-size {
+    margin-right: 4px;
+    margin-left: 4px; }
+  .json-container .hide {
+    display: none; }
+  .json-container .fas {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid; }
+  .json-container .fa-caret-down {
+    border-width: 6px 5px 0 5px;
+    border-color: #fff transparent; }
+  .json-container .fa-caret-right {
+    border-width: 5px 0 5px 6px;
+    border-color: transparent transparent transparent #fff; }
+
+.info-label-dot {
+  width: 8px;
+  height: 8px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center; }
+  .info-label-dot .info-label-mindot {
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border-radius: 4px;
+    position: absolute; }
+  .info-label-dot .info-label-maxdot {
+    border: 2px solid #000;
+    border-radius: 50%;
+    padding: 5px;
+    position: absolute;
+    animation: mymove 1.2s infinite;
+    -moz-animation: mymove 1.2s infinite;
+    /* Firefox */
+    -webkit-animation: mymove 1.2s infinite;
+    /* Safari and Chrome */
+    -o-animation: mymove 1.2s infinite;
+    /* Opera */ }
+
+.label-container.label-align-right .info-label-ui {
+  -webkit-transform: translate(-50%, 0%);
+      -ms-transform: translate(-50%, 0%);
+          transform: translate(-50%, 0%); }
+
+.label-container .info-label-ui {
+  background: #000000;
+  padding: 4px;
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  color: #fff;
+  border-radius: 5px;
+  -webkit-transform: translate(50%, 0%);
+      -ms-transform: translate(50%, 0%);
+          transform: translate(50%, 0%);
+  -webkit-transition: -webkit-transform 0.15s;
+  transition: -webkit-transform 0.15s;
+  transition: transform 0.15s;
+  transition: transform 0.15s, -webkit-transform 0.15s;
+  -moz-transition: transform 0.15s;
+  -web-kit-transition: transform 0.15s; }
+  .label-container .info-label-ui .info-label-text {
+    padding: 4px 16px;
+    border: 2px solid #ffffff80;
+    border-radius: 2px; }
+
+@-webkit-keyframes mymove {
+  0% {
+    padding: 1;
+    border-color: #000; }
+  100% {
+    padding: 12;
+    border-color: #00000000; } }
+
+@keyframes mymove {
+  0% {
+    padding: 1;
+    border-color: #000; }
+  100% {
+    padding: 12;
+    border-color: #00000000; } }
+
+.material-render {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: none;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column; }
+
+.material-panel {
+  position: absolute;
+  width: 200px;
+  height: 40px;
+  background: none;
+  bottom: 87px;
+  right: 703px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-direction: row; }
+
+.panel-item {
+  width: 40px;
+  height: 40px;
+  background: none;
+  cursor: pointer; }
+  .panel-item img {
+    width: 40px;
+    height: 40px; }
+
