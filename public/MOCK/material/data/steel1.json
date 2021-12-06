@@ -1,0 +1,26 @@
+{
+    "metadata": {
+        "version": 4.5,
+        "type": "Material",
+        "generator": "Material.toJSON"
+    },
+    "uuid": "96C290AA-4A2D-41C5-A087-929F204F4ACA",
+    "type": "MeshStandardMaterial",
+    "name": "Satin Finish Stainless Steel^抛光不锈钢",
+    "color": 9603714,
+    "roughness": 0.3304235,
+    "metalness": 1,
+    "emissive": 0,
+    "side": 2,
+    "depthFunc": 3,
+    "depthTest": true,
+    "depthWrite": true,
+    "stencilWrite": false,
+    "stencilWriteMask": 255,
+    "stencilFunc": 519,
+    "stencilRef": 0,
+    "stencilFuncMask": 255,
+    "stencilFail": 7680,
+    "stencilZFail": 7680,
+    "stencilZPass": 7680
+}

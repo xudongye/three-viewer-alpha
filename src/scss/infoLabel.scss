@@ -1,0 +1,80 @@
+.info-label-dot {
+
+  // width: 8px;
+  // height: 8px;
+  // background: #000;
+  width: 8px;
+  height: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .info-label-mindot {
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border-radius: 4px;
+    position: absolute;
+  }
+
+  .info-label-maxdot {
+
+    border: 2px solid #000;
+    border-radius: 50%;  
+    padding: 5px;
+    position: absolute;
+  
+    animation:mymove 1.2s infinite;
+    -moz-animation: mymove 1.2s infinite; /* Firefox */
+    -webkit-animation: mymove 1.2s infinite; /* Safari and Chrome */
+    -o-animation: mymove 1.2s infinite; /* Opera */  
+
+  }
+
+}
+
+
+.label-container {
+
+  &.label-align-right {
+
+    .info-label-ui {
+      transform: translate(-50%, 0%);
+    }
+  }
+
+  .info-label-ui {
+
+    background: #000000;
+    // border: 2px solid #f8f8f8e5;
+    padding: 4px;
+    backdrop-filter: blur(20px);
+    color: #fff;
+    border-radius: 5px;
+  
+    transform: translate(50%, 0%);
+    
+    transition: transform 0.15s;
+    -moz-transition: transform 0.15s;
+    -web-kit-transition: transform 0.15s;    
+ 
+    .info-label-text {
+  
+      padding: 4px 16px;
+      border: 2px solid #ffffff80;
+      border-radius: 2px;
+  
+    }
+  
+  
+  }
+
+}
+
+
+
+@keyframes mymove {
+  0% { padding: 1; border-color: #000} 
+  100% { padding: 12; border-color: #00000000} 
+
+}

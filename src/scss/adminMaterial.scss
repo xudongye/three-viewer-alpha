@@ -1,0 +1,33 @@
+.material-render {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.material-panel {
+    position: absolute;
+    width: 200px;
+    height: 40px;
+    background: none;
+    bottom: 87px;
+    right: 703px;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+}
+
+.panel-item {
+    width: 40px;
+    height: 40px;
+    background: none;
+    cursor: pointer;
+
+    img {
+        width: 40px;
+        height: 40px;
+    }
+}

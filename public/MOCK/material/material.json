@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "防滑不锈钢",
+        "materialUrl": "/MOCK/material/data/steel0.json"
+    },
+    {
+        "id": 2,
+        "name": "抛光不锈钢",
+        "materialUrl": "/MOCK/material/data/steel1.json"
+    },
+    {
+        "id": 3,
+        "name": "抛光钢",
+        "materialUrl": "/MOCK/material/data/steel2.json"
+    },
+    {
+        "id": 4,
+        "name": "哑光钢",
+        "materialUrl": "/MOCK/material/data/steel3.json"
+    },
+    {
+        "id": 5,
+        "name": "铸造不锈钢",
+        "materialUrl": "/MOCK/material/data/steel4.json"
+    },
+    {
+        "id": 6,
+        "name": "拉丝钢",
+        "materialUrl": "/MOCK/material/data/steel5.json"
+    }
+]
